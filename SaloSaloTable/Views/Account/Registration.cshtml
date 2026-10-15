@@ -1,0 +1,425 @@
+﻿@{
+    ViewBag.Title = "Registration";
+}
+
+<div ng-app="SaloSaloTableModule"
+     ng-controller="RegistrationController"
+     class="registration-page">
+
+    <div class="container">
+
+        <div class="registration-header center-align">
+            <p class="section-label">
+                HELLO ADMIN
+            </p>
+
+            <h1>
+                Employee Registration
+            </h1>
+
+            <p class="section-description">
+                Manage employee records for Salo-Salo Table.
+            </p>
+        </div>
+
+
+        <div class="card registration-card">
+
+            <div class="card-content">
+
+                <span class="card-title">
+                    Employee Information
+                </span>
+
+
+                <form name="registrationForm"
+                      ng-submit="saveEmployee()"
+                      novalidate>
+
+                    <div class="row">
+
+                        <div class="input-field col s12 m6">
+
+                            <input type="text"
+                                   id="employeeId"
+                                   name="employeeId"
+                                   ng-model="registrationEmployee.employeeId"
+                                   ng-minlength="3"
+                                   ng-maxlength="20"
+                                   required>
+
+                            <label for="employeeId">
+                                Employee ID
+                            </label>
+
+                            <small ng-show="registrationForm.employeeId.$touched &&
+                                            registrationForm.employeeId.$invalid">
+
+                                Employee ID must be 3 to 20 characters.
+
+                            </small>
+
+                        </div>
+
+
+                        <div class="input-field col s12 m6">
+
+                            <input type="text"
+                                   id="firstName"
+                                   name="firstName"
+                                   ng-model="registrationEmployee.firstName"
+                                   ng-pattern="/^[A-Za-z ]+$/"
+                                   ng-minlength="2"
+                                   ng-maxlength="50"
+                                   required>
+
+                            <label for="firstName">
+                                First Name
+                            </label>
+
+                            <small ng-show="registrationForm.firstName.$touched &&
+                                            registrationForm.firstName.$invalid">
+
+                                Enter a valid first name.
+
+                            </small>
+
+                        </div>
+
+
+                        <div class="input-field col s12 m6">
+
+                            <input type="text"
+                                   id="lastName"
+                                   name="lastName"
+                                   ng-model="registrationEmployee.lastName"
+                                   ng-pattern="/^[A-Za-z ]+$/"
+                                   ng-minlength="2"
+                                   ng-maxlength="50"
+                                   required>
+
+                            <label for="lastName">
+                                Last Name
+                            </label>
+
+                            <small ng-show="registrationForm.lastName.$touched &&
+                                            registrationForm.lastName.$invalid">
+
+                                Enter a valid last name.
+
+                            </small>
+
+                        </div>
+
+
+                        <div class="input-field col s12 m6">
+
+                            <input type="text"
+                                   id="position"
+                                   name="position"
+                                   ng-model="registrationEmployee.position"
+                                   ng-minlength="2"
+                                   ng-maxlength="50"
+                                   required>
+
+                            <label for="position">
+                                Position
+                            </label>
+
+                            <small ng-show="registrationForm.position.$touched &&
+                                            registrationForm.position.$invalid">
+
+                                Position must be 2 to 50 characters.
+
+                            </small>
+
+                        </div>
+
+
+                        <div class="input-field col s12 m6">
+
+                            <input type="email"
+                                   id="email"
+                                   name="email"
+                                   ng-model="registrationEmployee.email"
+                                   required>
+
+                            <label for="email">
+                                Email Address
+                            </label>
+
+                            <small ng-show="registrationForm.email.$touched &&
+                                            registrationForm.email.$invalid">
+
+                                Please enter a valid email address.
+
+                            </small>
+
+                        </div>
+
+
+                        <div class="input-field col s12 m6">
+
+                            <input type="text"
+                                   id="contactNumber"
+                                   name="contactNumber"
+                                   ng-model="registrationEmployee.contactNumber"
+                                   ng-pattern="/^[0-9]{11}$/"
+                                   required>
+
+                            <label for="contactNumber">
+                                Contact Number
+                            </label>
+
+                            <small ng-show="registrationForm.contactNumber.$touched &&
+                                            registrationForm.contactNumber.$invalid">
+
+                                Contact number must contain exactly 11 digits.
+
+                            </small>
+
+                        </div>
+
+
+                        <div class="input-field col s12 m6">
+
+                            <input type="text"
+                                   id="username"
+                                   name="username"
+                                   ng-model="registrationEmployee.username"
+                                   ng-pattern="/^[A-Za-z0-9_]+$/"
+                                   ng-minlength="4"
+                                   ng-maxlength="20"
+                                   required>
+
+                            <label for="username">
+                                Username
+                            </label>
+
+                            <small ng-show="registrationForm.username.$touched &&
+                                            registrationForm.username.$invalid">
+
+                                Username must be 4 to 20 characters and may contain
+                                letters, numbers, and underscores.
+
+                            </small>
+
+                        </div>
+
+
+                        <div class="input-field col s12 m6">
+
+                            <input type="password"
+                                   id="password"
+                                   name="password"
+                                   ng-model="registrationEmployee.password"
+                                   ng-pattern="/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z\d]).{8,}$/"
+                                   required>
+
+                            <label for="password">
+                                Password
+                            </label>
+
+                            <small ng-show="registrationForm.password.$touched &&
+                                            registrationForm.password.$invalid">
+
+                                Password must have 8+ characters, uppercase,
+                                lowercase, number, and special character.
+
+                            </small>
+
+                        </div>
+
+
+                        <div class="input-field col s12 m6">
+
+                            <input type="password"
+                                   id="confirmPassword"
+                                   name="confirmPassword"
+                                   ng-model="registrationEmployee.confirmPassword"
+                                   required>
+
+                            <label for="confirmPassword">
+                                Confirm Password
+                            </label>
+
+                            <small ng-show="registrationForm.confirmPassword.$touched &&
+                                            registrationEmployee.password !==
+                                            registrationEmployee.confirmPassword">
+
+                                Passwords do not match.
+
+                            </small>
+
+                        </div>
+
+
+                        <div class="input-field col s12">
+
+                            <textarea id="address"
+                                      name="address"
+                                      class="materialize-textarea"
+                                      ng-model="registrationEmployee.address"
+                                      ng-minlength="10"
+                                      ng-maxlength="200"
+                                      required></textarea>
+
+                            <label for="address">
+                                Address
+                            </label>
+
+                            <small ng-show="registrationForm.address.$touched &&
+                                            registrationForm.address.$invalid">
+
+                                Address must be 10 to 200 characters.
+
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="registration-buttons center-align">
+
+                        <button type="submit"
+                                class="btn-large salo-button">
+
+                            {{ editMode ? 'Update Employee' : 'Submit' }}
+
+                        </button>
+
+
+                        <button type="button"
+                                class="btn-large salo-button-outline"
+                                ng-click="clearForm()">
+
+                            Clear
+
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+
+        @*TABLE*@
+        <div class="card employee-table-card">
+
+            <div class="card-content">
+
+                <span class="card-title">
+                    Registered Employees
+                </span>
+
+
+                <div class="responsive-table">
+
+                    <table class="highlight">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Employee ID</th>
+                                <th>Name</th>
+                                <th>Position</th>
+                                <th>Email</th>
+                                <th>Username</th>
+                                <th>Actions</th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                            <tr ng-repeat="item in employees track by $index">
+
+                                <td>
+                                    {{ item.employeeId }}
+                                </td>
+
+
+                                <td>
+                                    {{ item.firstName }}
+                                    {{ item.lastName }}
+                                </td>
+
+
+                                <td>
+                                    {{ item.position }}
+                                </td>
+
+
+                                <td>
+                                    {{ item.email }}
+                                </td>
+
+
+                                <td>
+                                    {{ item.username }}
+                                </td>
+
+
+                                <td>
+
+                                    <button type="button"
+                                            class="btn-small salo-edit-button"
+                                            ng-click="editEmployee($index)">
+
+                                        EDIT
+
+                                    </button>
+
+
+                                    <button type="button"
+                                            class="btn-small salo-delete-button"
+                                            ng-click="deleteEmployee($index)">
+
+                                        DELETE
+
+                                    </button>
+
+                                </td>
+
+                            </tr>
+
+
+                            <tr ng-if="employees.length === 0">
+
+                                <td colspan="6"
+                                    class="center-align">
+
+                                    No employees registered yet.
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="@Url.Content("~/Scripts/SaloSalo/module.js")"></script>
+<script src="@Url.Content("~/Scripts/SaloSalo/service.js")"></script>
+<script src="@Url.Content("~/Scripts/SaloSalo/controller.js")"></script>

@@ -1,0 +1,483 @@
+﻿@{
+    ViewBag.Title = "Admin Dashboard";
+}
+
+<div ng-app="SaloSaloTableModule"
+     ng-controller="DashboardController">
+
+    <section class="admin-dashboard">
+
+        <div class="container">
+
+            <div class="admin-header">
+
+                <div>
+
+                    <div class="admin-label">
+                        SALO-SALO TABLE • ADMIN
+                    </div>
+
+                    <h1>
+                        @ViewBag.WelcomeMessage
+                    </h1>
+
+                    <p>
+                        Manage employees, reservations, reports, and
+                        restaurant settings.
+                    </p>
+
+                </div>
+
+                <div class="admin-date">
+
+                    <i class="material-icons">
+                        dashboard
+                    </i>
+
+                    <span>
+                        Admin Dashboard
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                 SUMMARY CARDS
+                 ========================= -->
+
+            <div class="admin-summary-grid">
+
+
+                <div class="admin-summary-card">
+
+                    <div class="summary-icon">
+
+                        <i class="material-icons">
+                            groups
+                        </i>
+
+                    </div>
+
+                    <div class="summary-info">
+
+                        <span class="summary-label">
+                            EMPLOYEES
+                        </span>
+
+                        <h2>
+                           5
+                        </h2>
+
+                        <p>
+                            Registered employees
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- RESERVATIONS -->
+
+                <div class="admin-summary-card">
+
+                    <div class="summary-icon">
+
+                        <i class="material-icons">
+                            event
+                        </i>
+
+                    </div>
+
+                    <div class="summary-info">
+
+                        <span class="summary-label">
+                            RESERVATIONS
+                        </span>
+
+                        <h2>
+                            5
+                        </h2>
+
+                        <p>
+                            Today's reservations
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- REPORTS -->
+
+                <div class="admin-summary-card">
+
+                    <div class="summary-icon">
+
+                        <i class="material-icons">
+                            bar_chart
+                        </i>
+
+                    </div>
+
+                    <div class="summary-info">
+
+                        <span class="summary-label">
+                            REPORTS
+                        </span>
+
+                        <h2>
+                            2
+                        </h2>
+
+
+                        <p>
+                            Available reports
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SETTINGS -->
+
+                <div class="admin-summary-card">
+
+                    <div class="summary-icon">
+
+                        <i class="material-icons">
+                            settings
+                        </i>
+
+                    </div>
+
+                    <div class="summary-info">
+
+                        <span class="summary-label">
+                            SETTINGS
+                        </span>
+
+                        <h2>
+                           
+                        </h2>
+
+                        <p>
+                            System settings
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                 MANAGEMENT
+                 ========================= -->
+
+            <div class="admin-section-header">
+
+                <div class="section-label">
+                    MANAGEMENT
+                </div>
+
+                <h2>
+                    Restaurant Administration
+                </h2>
+
+                <p>
+                    Select an area below to manage Salo-Salo Table.
+                </p>
+
+            </div>
+
+
+            <div class="admin-menu-grid">
+
+
+                <!-- =========================
+                     EMPLOYEE MANAGEMENT
+                     FUNCTIONAL
+                     ========================= -->
+
+                <a href="@Url.Action("Registration", "Home")"
+                   class="admin-menu-card">
+
+                    <div class="admin-menu-icon">
+
+                        <i class="material-icons">
+                            groups
+                        </i>
+
+                    </div>
+
+                    <div class="admin-menu-content">
+
+                        <h3>
+                            Employee Management
+                        </h3>
+
+                        <p>
+                            Register employees and manage employee
+                            information.
+                        </p>
+
+                        <span class="admin-menu-link">
+
+                            MANAGE EMPLOYEES
+
+                            <i class="material-icons">
+                                arrow_forward
+                            </i>
+
+                        </span>
+
+                    </div>
+
+                </a>
+
+
+                <!-- =========================
+                     RESERVATIONS
+                     PLACEHOLDER
+                     ========================= -->
+
+                <a href="#"
+                   class="admin-menu-card"
+                   ng-click="viewReservations()">
+
+                    <div class="admin-menu-icon">
+
+                        <i class="material-icons">
+                            event
+                        </i>
+
+                    </div>
+
+                    <div class="admin-menu-content">
+
+                        <h3>
+                            Reservations
+                        </h3>
+
+                        <p>
+                            View and manage customer table
+                            reservations.
+                        </p>
+
+                        <span class="admin-menu-link">
+
+                            VIEW RESERVATIONS
+
+                            <i class="material-icons">
+                                arrow_forward
+                            </i>
+
+                        </span>
+
+                    </div>
+
+                </a>
+
+
+                <!-- =========================
+                     REPORTS
+                     PLACEHOLDER
+                     ========================= -->
+
+                <a href="#"
+                   class="admin-menu-card"
+                   ng-click="viewReports()">
+
+                    <div class="admin-menu-icon">
+
+                        <i class="material-icons">
+                            bar_chart
+                        </i>
+
+                    </div>
+
+                    <div class="admin-menu-content">
+
+                        <h3>
+                            Reports
+                        </h3>
+
+                        <p>
+                            Review restaurant activity and
+                            administrative reports.
+                        </p>
+
+                        <span class="admin-menu-link">
+
+                            VIEW REPORTS
+
+                            <i class="material-icons">
+                                arrow_forward
+                            </i>
+
+                        </span>
+
+                    </div>
+
+                </a>
+
+
+                <!-- =========================
+                     SETTINGS
+                     PLACEHOLDER
+                     ========================= -->
+
+                <a href="#"
+                   class="admin-menu-card"
+                   ng-click="openSettings()">
+
+                    <div class="admin-menu-icon">
+
+                        <i class="material-icons">
+                            settings
+                        </i>
+
+                    </div>
+
+                    <div class="admin-menu-content">
+
+                        <h3>
+                            Settings
+                        </h3>
+
+                        <p>
+                            Manage restaurant information and
+                            system settings.
+                        </p>
+
+                        <span class="admin-menu-link">
+
+                            OPEN SETTINGS
+
+                            <i class="material-icons">
+                                arrow_forward
+                            </i>
+
+                        </span>
+
+                    </div>
+
+                </a>
+
+
+            </div>
+
+
+            <!-- =========================
+                 QUICK ACTIONS
+                 ========================= -->
+
+            <section class="quick-actions-section">
+
+                <div class="admin-section-header">
+
+                    <div class="section-label">
+                        QUICK ACTIONS
+                    </div>
+
+                    <h2>
+                        Get Started
+                    </h2>
+
+                    <p>
+                        Quickly access the most common
+                        administrative tasks.
+                    </p>
+
+                </div>
+
+
+                <div class="quick-actions">
+
+
+                    <!-- =========================
+                         REGISTER EMPLOYEE
+                         FUNCTIONAL
+                         ========================= -->
+
+                    <a href="@Url.Action("Registration", "Home")"
+                       class="quick-action-button">
+
+                        <i class="material-icons">
+                            person_add
+                        </i>
+
+                        Register Employee
+
+                    </a>
+
+
+                    <!-- =========================
+                         VIEW RESERVATIONS
+                         PLACEHOLDER
+                         ========================= -->
+
+                    <a href="#"
+                       class="quick-action-button"
+                       ng-click="viewReservations()">
+
+                        <i class="material-icons">
+                            event
+                        </i>
+
+                        View Reservations
+
+                    </a>
+
+
+                    <!-- =========================
+                         VIEW REPORTS
+                         PLACEHOLDER
+                         ========================= -->
+
+                    <a href="#"
+                       class="quick-action-button"
+                       ng-click="viewReports()">
+
+                        <i class="material-icons">
+                            assessment
+                        </i>
+
+                        View Reports
+
+                    </a>
+
+
+                    <!-- =========================
+                         OPEN SETTINGS
+                         PLACEHOLDER
+                         ========================= -->
+
+                    <a href="#"
+                       class="quick-action-button"
+                       ng-click="openSettings()">
+
+                        <i class="material-icons">
+                            settings
+                        </i>
+
+                        Open Settings
+
+                    </a>
+
+
+                </div>
+
+            </section>
+
+
+        </div>
+
+    </section>
+
+</div>

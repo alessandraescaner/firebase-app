@@ -1,0 +1,262 @@
+﻿@{
+    ViewBag.Title = "Salo-Salo Table";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8" />
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0" />
+
+    <title>Salo-Salo Table</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <link rel="stylesheet"
+          href="@Url.Content("~/Content/SaloSalo/salosalo.css")">
+
+</head>
+
+<body>
+
+
+    <nav class="salo-navbar">
+
+        <div class="nav-wrapper container">
+
+            @*logo*@
+
+            <a href="@Url.Action("Index", "Home")"
+               class="brand-logo salo-logo">
+
+                <img src="@Url.Content("~/Content/SaloSalo/images/salosalologo.png")"
+                     alt="Salo-Salo Table Logo"
+                     class="header-logo">
+
+                <span>
+                    Salo-Salo Table
+                </span>
+
+            </a>
+
+
+
+            <a href="#"
+               data-target="mobile-nav"
+               class="sidenav-trigger">
+
+                <i class="material-icons">menu</i>
+
+            </a>
+
+
+            <ul class="right hide-on-med-and-down">
+
+                <li>
+                    <a href="@Url.Action("Index", "Home")">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="@Url.Action("About", "Home")">
+                        About
+                    </a>
+                </li>
+
+                <li>
+                    <a href="@Url.Action("Contact", "Home")">
+                        Contact
+                    </a>
+                </li>
+
+                <li>
+                    <a href="@Url.Action("Registration", "Account")">
+                        Staff
+                    </a>
+                </li>
+
+                <li>
+                    <a href="@Url.Action("Login", "Account")">
+                        Login
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </nav>
+
+
+    <ul class="sidenav" id="mobile-nav">
+
+        <li>
+
+            <div class="sidenav-header">
+
+                <img src="@Url.Content("~/Content/SaloSalo/images/salosalologo.png")"
+                     alt="Salo-Salo Table Logo"
+                     class="mobile-logo">
+
+                <span>
+                    Salo-Salo Table
+                </span>
+
+            </div>
+
+        </li>
+
+
+        <li>
+            <a href="@Url.Action("Index", "Home")">
+                <i class="material-icons">home</i>
+                Home
+            </a>
+        </li>
+
+
+        <li>
+            <a href="@Url.Action("About", "Home")">
+                <i class="material-icons">restaurant</i>
+                About
+            </a>
+        </li>
+
+
+        <li>
+            <a href="@Url.Action("Contact", "Home")">
+                <i class="material-icons">contact_mail</i>
+                Contact
+            </a>
+        </li>
+
+
+        <li>
+            <a href="@Url.Action("Registration", "Account")">
+                <i class="material-icons">people</i>
+                Staff
+            </a>
+        </li>
+
+
+        <li>
+            <a href="@Url.Action("Login", "Account")">
+                <i class="material-icons">login</i>
+                Login
+            </a>
+        </li>
+
+    </ul>
+
+
+
+    <main>
+
+        @RenderBody()
+
+    </main>
+
+
+
+    <footer class="page-footer salo-footer">
+
+        <div class="container">
+
+            <div class="row">
+
+
+                <div class="col s12 m6">
+
+                    <div class="footer-brand">
+
+                        <img src="@Url.Content("~/Content/SaloSalo/images/salosalologo.png")"
+                             alt="Salo-Salo Table Logo"
+                             class="footer-logo">
+
+                        <h5 class="footer-title">
+                            Salo-Salo Table
+                        </h5>
+
+                    </div>
+
+                    <p>
+                        Where every meal brings us together.
+                    </p>
+
+                </div>
+
+
+                <div class="col s12 m6 footer-links">
+
+                    <h5 class="footer-title">
+                        Explore
+                    </h5>
+
+                    <a href="@Url.Action("Index", "Home")">
+                        Home
+                    </a>
+
+                    <a href="@Url.Action("About", "Home")">
+                        About
+                    </a>
+
+                    <a href="@Url.Action("Contact", "Home")">
+                        Contact
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-copyright">
+
+            <div class="container center-align">
+
+                © 2026 Salo-Salo Table. All Rights Reserved.
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- MATERIALIZE JAVASCRIPT -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="@Url.Content("~/Scripts/SaloSalo/module.js")"></script>
+    <script src="@Url.Content("~/Scripts/SaloSalo/service.js")"></script>
+    <script src="@Url.Content("~/Scripts/SaloSalo/controller.js")"></script>
+
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var sidenavs =
+                document.querySelectorAll('.sidenav');
+            M.Sidenav.init(sidenavs);
+
+        });
+
+    </script>
+
+
+    @RenderSection("scripts", required: false)
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>
